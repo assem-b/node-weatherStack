@@ -4,6 +4,7 @@ const path = require('path')
 const weatherstack = require('./weatherstack')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'hbs')
 hbs.registerPartials('./partials')
@@ -25,6 +26,6 @@ app.get('/help', (req, res) => {
     res.render('template', { whichPartial: () => 'help'})
 })
 
-app.listen(3000, () => 
-    console.log('Server is running on 3000')
+app.listen(port, () => 
+    console.log(`Server is running on ${port}`)
 )
